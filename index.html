@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeSavers Training | CPR, First Aid & Fire Safety Certification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --secondary: #FB3640;
+            --accent: #17A1B6;
+            --light: #F5F5F5;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e0252f;
+        }
+        
+        /* Hero Section */
+        .hero {
+  background: linear-gradient(rgba(10, 36, 99, 0.5), rgba(10, 36, 99, 0.5)), 
+              url('https://img.freepik.com/free-photo/paramedics-examining-injured-girl_107420-63735.jpg?t=st=1758388167~exp=1758391767~hmac=728282dda34f60c6d7b8c0a7998b92fecc4c9b7850cbd79e9b69c74a32dff31a&w=740');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 200px 0 150px; /* ⬅️ আরও বড় করলাম height */
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* ⬅️ লেখায় শ্যাডো */
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: #f0f0f0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* ⬅️ লেখায় শ্যাডো */
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e0252f;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Form */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--accent);
+            width: 20px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e0252f;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Life<span>Savers</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">References</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-button">Get Certified</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Life-Saving Skills For Your Workplace & Community</h1>
+            <p>Accredited, Engaging, and Essential First Aid, CPR & Fire Safety Training</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">View Our Courses</a>
+                <a href="#" class="btn-secondary">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Training Services</h2>
+                <p>Professional certification courses tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://img.freepik.com/free-photo/people-are-practicing-medicine_1157-42474.jpg?t=st=1758388477~exp=1758392077~hmac=b14dc1177b042b9851ec9de02fb71e833f11a00e7b64f4e78a9857b95980ecd7&w=740');"></div>
+                    <div class="service-content">
+                        <h3>CPR & AED Training</h3>
+                        <p>Learn essential cardiopulmonary resuscitation techniques and automated external defibrillator usage to respond to cardiac emergencies.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://img.freepik.com/premium-photo/first-aid-box-blue-background_392895-99735.jpg?w=740');"></div>
+                    <div class="service-content">
+                        <h3>First Aid Certification</h3>
+                        <p>Comprehensive first aid training covering wound care, fracture management, emergency response, and life-saving techniques.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://img.freepik.com/premium-photo/fire-extinguisher-training-fire-extinguisher-is-used-put-out-training-fire_1028938-44455.jpg?w=740');"></div>
+                    <div class="service-content">
+                        <h3>Fire Safety Training</h3>
+                        <p>Prepare your team with essential fire prevention knowledge, evacuation procedures, and fire extinguisher usage training.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by businesses and organizations across the region</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The training we received from LifeSavers was exceptional. Our team now feels confident to handle any emergency situation. The instructor was knowledgeable and engaging."</p>
+                    <p class="testimonial-author">Sarah Johnson</p>
+                    <p class="testimonial-role">Office Manager, TechSolutions Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Protect Your People?</h2>
+            <p>Book your certified training course today and ensure your team is prepared for emergencies</p>
+            <a href="#" class="btn-primary">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to discuss your training needs</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@lifesaverstraining.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Safety Street, City, State 12345</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Interest In</label>
+                            <select id="service">
+                                <option value="">Select a service</option>
+                                <option value="cpr">CPR & AED Training</option>
+                                <option value="firstaid">First Aid Certification</option>
+                                <option value="fire">Fire Safety Training</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>LifeSavers Training</h4>
+                    <p>Providing life-saving training solutions to businesses and communities since 2010.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">References</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">CPR & AED Training</a></li>
+                        <li><a href="#">First Aid Certification</a></li>
+                        <li><a href="#">Fire Safety Training</a></li>
+                        <li><a href="#">On-Site Training</a></li>
+                        <li><a href="#">Group Discounts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@lifesaverstraining.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Safety Street, City, State 12345</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 LifeSavers Training. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple testimonial slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonials = [
+                {
+                    text: '"The training we received from LifeSavers was exceptional. Our team now feels confident to handle any emergency situation. The instructor was knowledgeable and engaging."',
+                    author: 'Sarah Johnson',
+                    role: 'Office Manager, TechSolutions Inc.'
+                },
+                {
+                    text: '"We\'ve been using LifeSavers for our first aid training for three years now. Their courses are always up-to-date, practical, and well-received by our staff."',
+                    author: 'Michael Chen',
+                    role: 'HR Director, City Hospital'
+                },
+                {
+                    text: '"The fire safety training session was fantastic. The hands-on experience with extinguishers and evacuation planning was particularly valuable for our team."',
+                    author: 'Emily Rodriguez',
+                    role: 'Facility Manager, Metro Mall'
+                }
+            ];
+            
+            let currentTestimonial = 0;
+            const testimonialElement = document.querySelector('.testimonial');
+            
+            function updateTestimonial() {
+                testimonialElement.innerHTML = `
+                    <p class="testimonial-text">${testimonials[currentTestimonial].text}</p>
+                    <p class="testimonial-author">${testimonials[currentTestimonial].author}</p>
+                    <p class="testimonial-role">${testimonials[currentTestimonial].role}</p>
+                `;
+                
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            }
+            
+            // Change testimonial every 5 seconds
+            setInterval(updateTestimonial, 5000);
+            
+            // Form submission handling
+            const contactForm = document.querySelector('.contact-form form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will contact you shortly.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
